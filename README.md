@@ -11,3 +11,9 @@ Basic [UITableView](https://developer.apple.com/reference/uikit/uitableview) acc
 1. Add collapse/expand animation
 2. Make data source configurable
 3. Add icons to headers
+
+#How it looks
+
+![](https://github.com/alex-sirotenko/Accordion/blob/master/howItLooks.gif)
+
+
