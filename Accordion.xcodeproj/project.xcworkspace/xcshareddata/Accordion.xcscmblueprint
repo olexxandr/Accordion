@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D8C736D3B2EB8232DA34D5D22BC95338287030F8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D8C736D3B2EB8232DA34D5D22BC95338287030F8" : 9223372036854775807,
+    "E29B5847019EA40E2C6853390D1362767150A9A6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F46B13E1-3378-46A0-B621-6BA365F6EE0D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D8C736D3B2EB8232DA34D5D22BC95338287030F8" : "Accordion\/",
+    "E29B5847019EA40E2C6853390D1362767150A9A6" : "..\/aq\/oemvsdm"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Accordion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Accordion.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alex-sirotenko\/Accordion.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8C736D3B2EB8232DA34D5D22BC95338287030F8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "vc1.airbiquity.com:ios\/oemvsdm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E29B5847019EA40E2C6853390D1362767150A9A6"
+    }
+  ]
+}

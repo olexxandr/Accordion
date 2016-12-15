@@ -15,6 +15,8 @@
 		8E004DBE1DDD7FCC00E82C04 /* AccordionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E004DBD1DDD7FCC00E82C04 /* AccordionTests.swift */; };
 		8E004DC91DDD7FCC00E82C04 /* AccordionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E004DC81DDD7FCC00E82C04 /* AccordionUITests.swift */; };
 		8E004DD91DDD88D300E82C04 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E004DD81DDD88D300E82C04 /* CustomCell.swift */; };
+		8E3AABC81E0262A90007BFC2 /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3AABC71E0262A90007BFC2 /* TableSectionHeader.xib */; };
+		8E3AABCA1E0263E70007BFC2 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3AABC91E0263E70007BFC2 /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8E004DC81DDD7FCC00E82C04 /* AccordionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionUITests.swift; sourceTree = "<group>"; };
 		8E004DCA1DDD7FCC00E82C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E004DD81DDD88D300E82C04 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		8E3AABC71E0262A90007BFC2 /* TableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableSectionHeader.xib; path = ../../../aq/oemvsdm/OemVSDM/UI/TableSectionHeader.xib; sourceTree = "<group>"; };
+		8E3AABC91E0263E70007BFC2 /* SectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		8E004DA71DDD7FCC00E82C04 /* Accordion */ = {
 			isa = PBXGroup;
 			children = (
+				8E3AABC71E0262A90007BFC2 /* TableSectionHeader.xib */,
 				8E004DA81DDD7FCC00E82C04 /* AppDelegate.swift */,
 				8E004DAA1DDD7FCC00E82C04 /* ViewController.swift */,
 				8E004DAC1DDD7FCC00E82C04 /* Main.storyboard */,
@@ -106,6 +111,7 @@
 				8E004DB11DDD7FCC00E82C04 /* LaunchScreen.storyboard */,
 				8E004DB41DDD7FCC00E82C04 /* Info.plist */,
 				8E004DD81DDD88D300E82C04 /* CustomCell.swift */,
+				8E3AABC91E0263E70007BFC2 /* SectionHeader.swift */,
 			);
 			path = Accordion;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E004DB31DDD7FCC00E82C04 /* LaunchScreen.storyboard in Resources */,
+				8E3AABC81E0262A90007BFC2 /* TableSectionHeader.xib in Resources */,
 				8E004DB01DDD7FCC00E82C04 /* Assets.xcassets in Resources */,
 				8E004DAE1DDD7FCC00E82C04 /* Main.storyboard in Resources */,
 			);
@@ -263,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3AABCA1E0263E70007BFC2 /* SectionHeader.swift in Sources */,
 				8E004DAB1DDD7FCC00E82C04 /* ViewController.swift in Sources */,
 				8E004DD91DDD88D300E82C04 /* CustomCell.swift in Sources */,
 				8E004DA91DDD7FCC00E82C04 /* AppDelegate.swift in Sources */,
@@ -512,6 +520,7 @@
 				8E004DCF1DDD7FCC00E82C04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E004DD01DDD7FCC00E82C04 /* Build configuration list for PBXNativeTarget "AccordionTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +529,7 @@
 				8E004DD21DDD7FCC00E82C04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E004DD31DDD7FCC00E82C04 /* Build configuration list for PBXNativeTarget "AccordionUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +538,7 @@
 				8E004DD51DDD7FCC00E82C04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
