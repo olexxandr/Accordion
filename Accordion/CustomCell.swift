@@ -55,6 +55,17 @@ class Section {
     
     var numOfCells: Int = 0
     
+    private var _isVisisble: Bool = true
+    
+    var isVisible: Bool {
+        get {
+            return _isVisisble
+        }
+        set {
+            _isVisisble = newValue
+        }
+    }
+    
     func addHeader(label:String){
         self.cells.append(TableViewHeader_faq(label: label))
     }
@@ -65,14 +76,12 @@ class Section {
     }
     
     func toggleSection(expand:Bool){
-        var index = 0;
-        
-        while (self.cells.count > index) {
-            if (!(self.cells[index] is TableViewHeader_faq)) {
-                self.cells[index].isVisible = expand
+        for cell in self.cells {
+            if (!(cell is TableViewHeader_faq)) {
+                cell.isVisible = expand
             }
-            index += 1
         }
+        isVisible = expand;
     }
     
     func getCells () -> [TableViewCell_faq]? {
@@ -94,38 +103,43 @@ class Section {
 
 class CustomCells {
     
-    var faqSections:[Section] = []
+    var sections:[Section] = []
     
     var cellNumber: Int = 0
     
     func addHeader(label:String){
         let section = Section()
         section.addHeader(label:label)
-        faqSections.append(section)
+        self.sections.append(section)
     }
     
     func getRowsForSection(section:Int) -> Int {
         
-        return self.faqSections[section].numOfCells
+        return self.sections[section].numOfCells
     }
     
     func addCell(label:String, text:String) {
-        let section = self.faqSections[self.faqSections.count - 1]
+        let section = self.sections[self.sections.count - 1]
         section.addCell(label:label, text:text)
     }
     
     func toggleGroup(expand:Bool, section: Int){
-        self.faqSections[section].toggleSection(expand: expand)
+        self.sections[section].toggleSection(expand: expand)
     }
     
+    func sectionIsVisible(section:Int) -> Bool {
+        return self.sections[section].isVisible
+    }
+    
+    
     func getCell(section: Int, row: Int) -> TableViewCell_faq? {
-        let section = self.faqSections[section]
+        let section = self.sections[section]
         let cells = section.getCells()
         return cells?[row]
     }
     
     func getHeader(section: Int) -> TableViewHeader_faq? {
-        let section = self.faqSections[section];
+        let section = self.sections[section];
         
         return section.getHeader()
     }

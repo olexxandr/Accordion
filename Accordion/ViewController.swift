@@ -32,14 +32,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (self.customCells?.faqSections.count)!
+        return (self.customCells?.sections.count)!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.customCells!.getRowsForSection(section: section)
     }
-    
-    
     
     override func viewDidLoad() {
         self.customCells = CustomCells()
@@ -77,12 +75,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return self.headerHeight
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let header = (self.customCells?.getHeader(section: section))!
-        
-        return header.label
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let item = self.customCells?.getCell(section: indexPath.section, row: indexPath.row)
         
@@ -93,33 +85,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    //TODO: add arrow-down and arrow-left icons
+    //TODO: reuse header section object
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UITableViewHeaderFooterView()
+        let headerView = Bundle.main.loadNibNamed("TableSectionHeader", owner: nil, options: nil)?.first as! SectionHeader        
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.onHeaderTap(gestureRecognizer:)))
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.numberOfTouchesRequired = 1
         headerView.addGestureRecognizer(tapRecognizer)
         headerView.tag = section
+        let header = (self.customCells?.getHeader(section: section))!
         
+        
+        headerView.titleLabel.text = header.label
+        if (self.customCells?.sectionIsVisible(section: section))! {
+            headerView.img_down.isHidden = false
+            headerView.img_right.isHidden = true
+        } else {
+            headerView.img_down.isHidden = true
+            headerView.img_right.isHidden = false
+        }
         return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor.lightGray
-        header.textLabel?.font = UIFont(name:"Avenir", size:16)
-        header.textLabel?.textColor = UIColor.black
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0001
     }
     
-    
-    //TODO: add animation on cell collapse
     func onHeaderTap(gestureRecognizer: UIGestureRecognizer)
     {
         guard let cell = gestureRecognizer.view as? UITableViewHeaderFooterView else {
@@ -146,6 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         self.tableView.beginUpdates()
+        self.tableView.reloadSections([section], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
     }
     
