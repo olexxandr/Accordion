@@ -16,4 +16,14 @@ class SectionHeader: UITableViewHeaderFooterView {
     
     @IBOutlet weak var img_right: UIImageView!
     
+    func toggleSectionArrow(sectionIsVisible: Bool) -> Void {
+        if (sectionIsVisible) {
+            self.img_down.isHidden = false
+            self.img_right.isHidden = true
+        } else {
+            self.img_down.isHidden = true
+            self.img_right.isHidden = false
+        }
+    }
+    
 }

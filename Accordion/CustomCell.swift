@@ -113,6 +113,10 @@ class CustomCells {
         self.sections.append(section)
     }
     
+    func sectionIsVisisble(section: Int) -> Bool {
+        return self.sections[section].isVisible
+    }
+    
     func getRowsForSection(section:Int) -> Int {
         
         return self.sections[section].numOfCells
