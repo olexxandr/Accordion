@@ -16,12 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var previouslySelectedHeaderIndex: Int?
-    
-    private var selectedHeaderIndex: Int?
-    
-    private var selectedItemIndex: Int?
-    
     private let estimatedRowHeight:CGFloat = 150
     
     private let headerHeight:CGFloat = 40.0;
@@ -29,7 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private let headerBackgroundColor = UIColor.lightGray
     
     private var customCells: CustomCells?
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return (self.customCells?.sections.count)!
@@ -99,13 +92,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         headerView.titleLabel.text = header.label
-        if (self.customCells?.sectionIsVisible(section: section))! {
-            headerView.img_down.isHidden = false
-            headerView.img_right.isHidden = true
-        } else {
-            headerView.img_down.isHidden = true
-            headerView.img_right.isHidden = false
-        }
+        headerView.toggleSectionArrow(sectionIsVisible: (self.customCells?.sectionIsVisible(section: section))!)
+
         return headerView
     }
     
@@ -120,24 +108,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         let section = cell.tag
-        if self.selectedHeaderIndex == nil {
-            self.selectedHeaderIndex = section
-        } else {
-            self.previouslySelectedHeaderIndex = self.selectedHeaderIndex
-            self.selectedHeaderIndex = section
-        }
-        
-        if self.previouslySelectedHeaderIndex != nil {
-            self.customCells?.toggleGroup(expand: true, section: section)
-        }
-        
-        if self.previouslySelectedHeaderIndex != self.selectedHeaderIndex {
-            self.customCells?.toggleGroup(expand:false, section: section)
-        } else {
-            self.selectedHeaderIndex = nil
-            self.previouslySelectedHeaderIndex = nil
-        }
-        
+        self.customCells?.toggleGroup(expand:!self.customCells!.sectionIsVisisble(section: section), section: section)
         self.tableView.beginUpdates()
         self.tableView.reloadSections([section], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
